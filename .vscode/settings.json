@@ -1,0 +1,12 @@
+{
+  "editor.formatOnSave": true,
+  "files.exclude": {
+    "**/.next": true,
+    "**/node_modules": true,
+    "**/__pycache__": true
+  },
+  "python.analysis.extraPaths": [
+    "${workspaceFolder}/backend"
+  ],
+  "typescript.tsdk": "${workspaceFolder}/web/node_modules/typescript/lib"
+}
