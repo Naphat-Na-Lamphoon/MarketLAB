@@ -34,24 +34,25 @@ export default function HypothesisForm() {
   }
 
   return (
-    <form onSubmit={submit} style={{ display: "grid", gap: 16, marginTop: 32 }}>
+    <form onSubmit={submit} className="form-card">
+      <div className="form-grid">
       {([
         ["problem_statement", "Problem"],
         ["target_segment", "Target segment"],
         ["offer_description", "Offer"],
         ["pricing_tier", "Pricing"],
       ] as const).map(([field, label]) => (
-        <label key={field} style={{ display: "grid", gap: 6 }}>
+        <label key={field} className={`field ${field === "problem_statement" || field === "offer_description" ? "full" : ""}`}>
           {label}
           <textarea required rows={3} value={form[field]} onChange={(event) => update(field, event.target.value)} />
         </label>
       ))}
-      <label style={{ display: "grid", gap: 6 }}>
+      <label className="field">
         Budget cap (THB)
         <input min={1} required type="number" value={form.budget_cap_thb} onChange={(event) => update("budget_cap_thb", event.target.value)} />
       </label>
-      <button type="submit">Save hypothesis draft</button>
-      <p aria-live="polite">{message}</p>
+      </div>
+      <div className="form-actions"><button className="button" type="submit">Save hypothesis draft</button><p className="notice" aria-live="polite">{message}</p></div>
     </form>
   );
 }
