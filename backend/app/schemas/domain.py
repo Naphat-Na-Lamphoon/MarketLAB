@@ -32,4 +32,4 @@ class TelemetryEventRequest(BaseModel):
     experiment_id: UUID
     variant_id: UUID
     event_type: Literal["view", "click", "conversion", "time_on_page"]
-    value: Decimal | None = None
+    value: Decimal | None = Field(default=None, ge=0)

@@ -42,10 +42,27 @@ Set-Location backend
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install -r requirements.txt
+python -m app.seed
 uvicorn app.main:app --reload --port 8000
 ```
 
 API docs: http://localhost:8000/docs
+
+In the default `ENV=dev` mode, the API loads presentation data in memory on
+startup for the `admin`, `operator`, and `viewer` examples. This does not
+require PostgreSQL and is cleared when the API restarts.
+
+The local seed creates one demo user for each role and one hypothesis workspace
+per user. These credentials are for local development only:
+
+| Role | Email | Password |
+|---|---|---|
+| admin | admin@marketlab.local | Admin123! |
+| operator | operator@marketlab.local | Operator123! |
+| viewer | viewer@marketlab.local | Viewer123! |
+
+The current API scaffold does not enforce authentication yet; the seed data is
+for preparing the role-based workflow before Milestone 2.
 
 เมื่อใช้ค่าเริ่มต้นแบบ local SQLite ให้ตรวจฐานข้อมูลได้ที่
 `http://localhost:8000/health/db` โดยไม่ต้องเปิด Docker

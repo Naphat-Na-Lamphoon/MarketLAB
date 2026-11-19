@@ -38,6 +38,17 @@
 - [x] เพิ่ม API client ฝั่ง web
 - [ ] เพิ่ม mock data สำหรับพัฒนา UI โดยไม่ต้องมี database
 
+### Basic demo workflow ที่ทำได้โดยไม่ใช้ Database
+
+- [x] สร้างและเรียกดู hypotheses และ variants แบบ in-memory
+- [x] อนุมัติหรือปฏิเสธ variant
+- [x] สร้าง อนุมัติ launch และ pause simulated experiment
+- [x] รับ telemetry แบบ deduplicate ด้วย `event_id`
+- [x] แสดง metrics ราย variant และ evaluate ด้วย CTR/CVR, z-score และ p-value
+
+ข้อมูลใน workflow นี้ยังเป็นข้อมูลชั่วคราวและจะหายเมื่อ restart API จนกว่า
+Project Head จะอนุมัติแนวทาง Database
+
 **ขอบเขต:** phase นี้ทำได้ใน VS Code และใช้ Node.js ที่มีอยู่ได้ทันที ส่วน Python runtime, Docker, PostgreSQL และ Redis จะทำใน Milestone 0 เมื่อพร้อมติดตั้ง
 
 ## Milestone 0: เตรียมเครื่องมือและรันระบบ

@@ -23,6 +23,11 @@ conversion are deferred until Docker/PostgreSQL is available.
 
 The simulated adapter is the safe default. Real Google Ads is intentionally not wired to live traffic in this initial scaffold.
 
+The API also exposes an in-memory demo workflow without requiring a database:
+create and approve variants, create/approve/launch/pause simulated experiments,
+record deduplicated telemetry, and inspect metrics/evaluation results. This
+state is intentionally temporary until the database choice is approved.
+
 ## Quick start
 
 See [docs/SETUP.md](docs/SETUP.md). The web shell can be started immediately with Node.js. The API requires Python 3.11+.
